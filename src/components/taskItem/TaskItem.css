@@ -1,0 +1,15 @@
+.container,
+.left-part {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.left-part {
+    flex: 3;
+}
+
+.right-part {
+    flex: 1;
+}
