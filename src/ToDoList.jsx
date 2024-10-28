@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FiEdit } from "react-icons/fi";
 import { MdDeleteForever } from "react-icons/md";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function ToDoList() {
   const [tasks, setTasks] = useState(["Boom boom", "Bim Bam", "Bam bam"]);
@@ -61,38 +62,46 @@ export default function ToDoList() {
         </div>
         <div className="todo-list">
           <ol>
-            {tasks.map((task, index) => (
-              <li key={index}>
-                {editIndex === index ? (
-                  <>
-                    <input
-                      type="text"
-                      value={editText}
-                      onChange={(e) => setEditText(e.target.value)}
-                    />
-                    <button onClick={confirmUpdate}>Confirm</button>
-                  </>
-                ) : (
-                  <>
-                    <span className="text">{task}</span>
-                    <div className="buttons">
-                      <button
-                        className="update-button"
-                        onClick={() => updateTask(index)}
-                      >
-                        <FiEdit />
-                      </button>
-                      <button
-                        className="delete-button"
-                        onClick={() => deleteTask(index)}
-                      >
-                        <MdDeleteForever />
-                      </button>
-                    </div>
-                  </>
-                )}
-              </li>
-            ))}
+            <AnimatePresence>
+              {tasks.map((task, index) => (
+                <motion.li
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {editIndex === index ? (
+                    <>
+                      <input
+                        type="text"
+                        value={editText}
+                        onChange={(e) => setEditText(e.target.value)}
+                      />
+                      <button onClick={confirmUpdate}>Confirm</button>
+                    </>
+                  ) : (
+                    <>
+                      <span className="text">{task}</span>
+                      <div className="buttons">
+                        <button
+                          className="update-button"
+                          onClick={() => updateTask(index)}
+                        >
+                          <FiEdit />
+                        </button>
+                        <button
+                          className="delete-button"
+                          onClick={() => deleteTask(index)}
+                        >
+                          <MdDeleteForever />
+                        </button>
+                      </div>
+                    </>
+                  )}
+                </motion.li>
+              ))}
+            </AnimatePresence>
           </ol>
         </div>
       </div>
