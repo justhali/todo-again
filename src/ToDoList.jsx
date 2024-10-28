@@ -56,9 +56,17 @@ export default function ToDoList() {
             onChange={handleInputChange}
             value={newTask}
           />
-          <button className="add-button" onClick={addTask}>
+          <motion.button
+            className="add-button"
+            onClick={addTask}
+            whileHover={{
+              backgroundColor: "#dadad4",
+              color: "#567C8D",
+              borderColor: "#567C8D",
+            }}
+          >
             Add
-          </button>
+          </motion.button>
         </div>
         <div className="todo-list">
           <ol>

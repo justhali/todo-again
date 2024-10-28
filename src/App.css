@@ -1,0 +1,135 @@
+.container {
+    width: 80vw;
+    max-width: 600px;
+    margin: 0 auto;
+    padding-top: 5vh;
+}
+
+.title {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    margin-bottom: 3vh;
+}
+
+h1 {
+    font-size: 3rem;
+    text-align: center;
+    font-family: "Reem Kufi", sans-serif, Arial, Helvetica;
+    text-shadow:
+        0 -1px 0 #fff,
+        0 1px 0 #2e2e2e,
+        0 2px 0 #2c2c2c,
+        0 3px 0 #2a2a2a,
+        0 4px 0 #282828,
+        0 5px 0 #262626,
+        0 5px 8px rgba(0, 0, 0, 0.4);
+}
+
+.title>span {
+    font-size: 0.9rem;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 1vw;
+    text-shadow: .1em .1em 0 hsl(200 50% 30%);
+}
+
+.title>span::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 250px;
+    height: 100px;
+    padding-top: 66%;
+    background-image: url('./assets/another-one.webp');
+    background-size: cover;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+    z-index: 100;
+}
+
+.title>span:hover::after {
+    opacity: 1;
+}
+
+.input {
+    display: flex;
+    gap: 1vw;
+}
+
+input {
+    flex: 1;
+    padding: 2vh;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    outline: none;
+    border: 1px solid #b4b4b4;
+}
+
+input:focus {
+    border: 2px solid #456472;
+}
+
+button {
+    padding: 1vh 2vw;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #dadad4;
+}
+
+.add-button {
+    background-color: transparent;
+    border: 1px solid #dadad4;
+    font-weight: bold;
+    color: #dadad4;
+}
+
+.todo-list {
+    margin: 3vh 0 2vh 0;
+    font-weight: bold;
+}
+
+.todo-list ol {
+    list-style: none;
+    font-size: 1.4rem;
+}
+
+.todo-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 1vh 0 1vh 2vw;
+    background-color: #637c88;
+    margin-bottom: 1vh;
+}
+
+.todo-list li input,
+.todo-list li span {
+    flex: 2;
+    word-wrap: break-word;
+}
+
+.buttons {
+    flex: 1;
+    display: flex;
+    gap: 1vw;
+    justify-content: flex-end;
+
+}
+
+.update-button {
+    background-color: #469693;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+
+}
+
+.delete-button {
+    background-color: #be463e;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+
+}
