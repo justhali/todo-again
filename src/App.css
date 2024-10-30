@@ -15,15 +15,7 @@
 h1 {
     font-size: 3rem;
     text-align: center;
-    font-family: "Reem Kufi", sans-serif, Arial, Helvetica;
-    text-shadow:
-        0 -1px 0 #fff,
-        0 1px 0 #2e2e2e,
-        0 2px 0 #2c2c2c,
-        0 3px 0 #2a2a2a,
-        0 4px 0 #282828,
-        0 5px 0 #262626,
-        0 5px 8px rgba(0, 0, 0, 0.4);
+    text-shadow: 3px 3px 0px var(--highlight);
 }
 
 .title>span {
@@ -32,7 +24,7 @@ h1 {
     display: inline-block;
     cursor: pointer;
     margin-left: 1vw;
-    text-shadow: .1em .1em 0 hsl(200 50% 30%);
+    text-shadow: 2px 2px 4px var(--highlight);
 }
 
 .title>span::after {
@@ -41,13 +33,14 @@ h1 {
     top: 100%;
     left: 50%;
     transform: translateX(-50%);
-    width: 250px;
+    width: 150px;
     height: 100px;
     padding-top: 66%;
     background-image: url('./assets/another-one.webp');
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
     opacity: 0;
-    transition: opacity 0.3s;
+    transition: opacity 0.3s ease-in-out;
     pointer-events: none;
     z-index: 100;
 }
@@ -63,31 +56,38 @@ h1 {
 
 input {
     flex: 1;
-    padding: 2vh;
-    border-radius: 10px;
+    padding: 1.5vh;
+    border-radius: 8px;
     font-size: 1.5rem;
     outline: none;
-    border: 1px solid #b4b4b4;
+    border: 1px solid #ddd;
+    transition: border-color 0.3s ease;
 }
 
 input:focus {
-    border: 2px solid #456472;
+    border-color: var(--highlight);
+    box-shadow: 0 0 8px rgba(126, 182, 255, 0.3);
 }
 
 button {
     padding: 1vh 2vw;
     border: none;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     cursor: pointer;
     border-radius: 5px;
-    background-color: #dadad4;
+    background-color: var(--background-elements);
+    color: var(--dark);
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0059c1;
 }
 
 .add-button {
     background-color: transparent;
-    border: 1px solid #dadad4;
+    border: 1px solid var(--background-elements);
     font-weight: bold;
-    color: #dadad4;
 }
 
 .todo-list {
@@ -98,38 +98,62 @@ button {
 .todo-list ol {
     list-style: none;
     font-size: 1.4rem;
+    padding: 0;
 }
 
 .todo-list li {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    padding: 1vh 0 1vh 2vw;
-    background-color: #637c88;
-    margin-bottom: 1vh;
+    margin: 8px 0;
+    padding: 12px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.todo-list li input,
-.todo-list li span {
-    flex: 2;
-    word-wrap: break-word;
+.todo-list li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-.buttons {
-    flex: 1;
+.menu-icon {
+    cursor: pointer;
+    font-size: 1.4rem;
+    color: #777;
+    transition: color 0.3s ease;
+}
+
+.menu-icon:hover {
+    color: var(--highlight);
+}
+
+.options-menu {
+    position: absolute;
+    top: 70%;
+    right: 0;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
-    gap: 1vw;
-    justify-content: flex-end;
-
+    flex-direction: column;
+    min-width: 120px;
+    z-index: 200;
 }
 
-.update-button {
-    background-color: #469693;
-    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-
+.options-menu button {
+    background: none;
+    border: none;
+    padding: 8px 12px;
+    color: #333;
+    text-align: left;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
 }
 
-.delete-button {
-    background-color: #be463e;
-    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-
+.options-menu button:hover {
+    background: #f0f0f0;
 }
