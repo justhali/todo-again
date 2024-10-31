@@ -10,6 +10,7 @@
     align-items: baseline;
     justify-content: center;
     margin-bottom: 3vh;
+    flex-wrap: wrap;
 }
 
 h1 {
@@ -18,7 +19,7 @@ h1 {
     text-shadow: 3px 3px 0px var(--highlight);
 }
 
-.title>span {
+.title>p {
     font-size: 0.9rem;
     position: relative;
     display: inline-block;
@@ -27,7 +28,7 @@ h1 {
     text-shadow: 2px 2px 4px var(--highlight);
 }
 
-.title>span::after {
+.title>p::after {
     content: "";
     position: absolute;
     top: 100%;
@@ -45,17 +46,18 @@ h1 {
     z-index: 100;
 }
 
-.title>span:hover::after {
+.title>p:hover::after {
     opacity: 1;
 }
 
 .input {
     display: flex;
     gap: 1vw;
+    flex-wrap: wrap;
 }
 
 input {
-    flex: 1;
+    flex: 3;
     padding: 1.5vh;
     border-radius: 8px;
     font-size: 1.5rem;
@@ -67,6 +69,10 @@ input {
 input:focus {
     border-color: var(--highlight);
     box-shadow: 0 0 8px rgba(126, 182, 255, 0.3);
+}
+
+.input>button {
+    flex: 1;
 }
 
 button {

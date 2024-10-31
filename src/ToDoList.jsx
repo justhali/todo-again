@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
-import ConfirmDialog from "./ConfirmDialog";
+import ConfirmDialog from "./ConfirmDialog/ConfirmDialog";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import TaskItem from "./TaskItem";
+import TaskItem from "./TaskItem/TaskItem";
 
 export default function ToDoList() {
   const [tasks, setTasks] = useState(() => {
@@ -88,7 +88,7 @@ export default function ToDoList() {
       <div className="container">
         <div className="title">
           <h1>To Do List</h1>
-          <span>...another one</span>
+          <p>...another one</p>
         </div>
         <div className="input">
           <input
